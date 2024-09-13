@@ -1,4 +1,4 @@
 export interface CardProps {
-    children: string
+    children: React.ReactNode
     className: string
 }
