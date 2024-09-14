@@ -1,0 +1,222 @@
+@use "../styles//variables";
+@use "../styles/mixins";
+
+.container__header {
+    width: 100%;
+    height: 35%;
+}
+
+/* STEPS */ 
+.steps {
+    @include mixins.flex-row;
+    font-size: variables.$font-1;
+    width: 100%;
+}
+
+.steps__icon {
+    flex-grow: 0;
+}
+
+.steps__title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.add__new__card__session {
+    @include mixins.flex-row;
+    margin-top: 1.8rem;
+    font-size: variables.$font-2;
+}
+
+.add__new__card__icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100px;
+    border: 1px solid variables.$icon-color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: variables.$mr;
+    transform: rotate(45deg);
+}
+
+/* CARD */ 
+.card__container {
+    width: 100%;
+    height: 200px;
+    padding: variables.$padding;
+    position: absolute;
+    inset: 0;
+    top: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.card__container > div {
+    width: 344px;
+    background: variables.$bg-card-empty-color;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: variables.$padding;
+    box-shadow: 2px 2px 8px #000;
+}
+
+.card__container__header__flag {
+    font-size: variables.$font-2;
+}
+
+.card__container__number {
+    font-size: variables.$font-1;
+}
+
+.card__container__number span {
+    margin-right: variables.$mr;
+}
+
+
+.card__container__footer {
+    @include mixins.flex-row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card__container__footer__name,
+.card__container__footer__validate {
+    font-size: variables.$font-1;
+}
+
+/* CARD INFO */
+.card__info__content {
+    width: 100%;
+    height: 75%;
+
+    @include mixins.flex-row;
+    padding: variables.$padding;
+} 
+
+.card__info__content__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 50%;
+    margin-top: 100px;
+}
+
+.card__info__content__form input {
+    margin-bottom: variables.$mb;
+}
+
+.card__info__content__form input::placeholder {
+    color: variables.$text-color-gray;
+    font-size: variables.$font-1;
+}
+
+.card__info__content__form div input {
+    width: 48.2%;
+}
+
+.card__info__content__btn-add-new-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card__info__content__btn-add-new-card button {
+    background-color: variables.$bg-color-green;
+    color: variables.$text-color-white;
+    width: 130px;
+    padding: .8rem 0;
+    border-radius: 4px;
+    font-size: variables.$font-1;
+    font-weight: variables.$font-medium;
+}
+
+@media (min-width: 800px) {
+    .card__container {
+        justify-content: flex-start;
+    }
+
+    .steps span {
+        display: flex;
+        align-items: center;
+    }
+
+    .steps p {
+        font-weight: variables.$font-thin;
+    }
+
+    .add__new__card__title {
+        font-size: 1.2rem;
+    }
+
+    .add__new__card__icon {
+        width: 3.2rem;
+        height: 2.6rem;
+    }
+
+    .container__aside {
+        width: 350px;
+    }
+
+    .card__info__content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    }
+
+    .card__info__content__status {
+        width: 100%;
+    }
+
+    .card__info__content__status ul {
+        width: 100%;
+        @include mixins.flex-row;
+        justify-content: end;
+        list-style: none;
+    }
+
+    .card__info__content__status ul li {
+       color: variables.$text-color-green;
+       font-size: variables.$font-1;
+       margin-left: variables.$ml;
+       @include mixins.flex-row;
+       font-weight: 400;
+    }
+
+    .card__info__content__status ul li span:nth-child(1) {
+        margin-right: 4px;
+        border-radius: 3rem;
+        border: 1px solid variables.$text-color-green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        font-size: .8rem;
+     }
+
+     .card__info__content__status ul li span.card__info__content__status__active {
+        padding: 4px 6px;
+        background-color: variables.$bg-color-green;
+     }
+
+     .card__info__content__status ul li span svg {
+        color: variables.$text-color-white;
+        font-weight: variables.$font-medium;
+     }
+
+    .card__info__content__form {
+        width: 450px;
+    }
+
+    .card__info__content__btn-add-new-card {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+}
