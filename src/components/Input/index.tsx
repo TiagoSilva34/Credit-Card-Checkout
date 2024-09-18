@@ -5,10 +5,13 @@ const Input = ({
     placeholder,
     value,
     className,
-    onChange
+    onChange,
+    onFocus,
+    name,
+    maxLength
 }: InputProps) => {
     return (
-        <input type={type} placeholder={placeholder} className={className} value={value} onChange={onChange} />
+        <input maxLength={maxLength} name={name} onFocus={onFocus} type={type} placeholder={placeholder} className={className} value={value} onChange={onChange} />
     )
 }
 
