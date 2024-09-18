@@ -4,10 +4,11 @@ const Button = ({
     type,
     children,
     className,
-    onClick
+    onClick,
+    disabled
 }: ButtonProps) => {
     return (
-        <button type={type} className={className} onClick={onClick}>
+        <button disabled={disabled} type={type} className={className} onClick={onClick}>
             {children}
         </button>
     )
