@@ -64,8 +64,51 @@
     box-shadow: 2px 2px 8px #000;
 }
 
+.card__container > div.card__container__filled {
+    background: variables.$bg-card-color-filled;
+}
+
+.card__container > div.card__container__empty {
+    background: variables.$bg-card-empty-color;
+}
+
+.card__container > div.card__container__filled.alert__class,
+.card__container > div.card__container__empty.alert__class {
+    background: linear-gradient(to  right, #990707, #650404) !important;
+}
+
+.card__container__black__tape {
+    width: 100%;
+    height: 30px;
+    background-color: #000;
+}
+
+.card__container__cvv__info {
+    width: 70%;
+    height: 30px;
+    position: relative;
+    bottom: 100px;
+    right: 0;
+    background-color: variables.$bg-color-white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #474545;
+    font-size: 1rem;
+}
+
+.animate-rotate {
+    transform: rotateY(-190deg);
+    transition: 1s linear;
+}
+.animate-rotate-reverse {
+    transform: rotateY(190deg);
+    transition: 1s linear;
+}
+
 .card__container__header__flag {
-    font-size: variables.$font-2;
+    font-size: 3rem;
+    height: 40px;
 }
 
 .card__container__number {
@@ -108,15 +151,41 @@
 
 .card__info__content__form input {
     margin-bottom: variables.$mb;
+    color: variables.$text-color-gray;
+    font-size: variables.$font-1;
 }
+
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: variables.$text-color-gray;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px white inset;/*your box-shadow*/
+    -webkit-text-fill-color: variables.$text-color-gray;
+} 
 
 .card__info__content__form input::placeholder {
     color: variables.$text-color-gray;
     font-size: variables.$font-1;
 }
 
-.card__info__content__form div input {
-    width: 48.2%;
+.card__info__content__form div {
+    display: flex;
+    width: 100%;
+}
+
+.card__info__content__form div span,
+.card__info__content__form span {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    position: relative;
+}
+
+.card__info__content__form div input,
+.card__info__content__form span input {
+    width: 100%;
 }
 
 .card__info__content__btn-add-new-card {
@@ -135,9 +204,76 @@
     font-weight: variables.$font-medium;
 }
 
+.error-message {
+    color: red;
+    font-size: .8rem;
+    font-weight: 400;
+    position: absolute;
+    top: 30px;
+}
+
+.overlay {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .7);
+    inset: 0;
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay__modal__container {
+    background-color: variables.$bg-color-white;
+    width: 400px;
+    height: 200px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.overlay__modal__container div {
+    @include mixins.flex-row;
+}
+
+.overlay__modal__container span:nth-child(1) {
+    margin-right: 4px;
+    border-radius: 3rem;
+    border: 1px solid variables.$text-color-green;
+    background-color: variables.$bg-color-green;
+    color: variables.$text-color-white;
+    font-weight: variables.$font-medium;
+    padding: 4px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+ }
+
+.overlay__modal__container span.overlay__modal__container__title {
+    color: variables.$text-color-gray;
+    font-weight: variables.$font-medium;
+    font-size: 1.2rem;
+}
+
+.overlay__modal__container .overlay__modal__container__counter {
+    color: #7e7b7b;
+    font-weight: variables.$font-medium;
+    font-size: .8rem;
+    margin-top: 1rem;
+}
+
+
 @media (min-width: 800px) {
     .card__container {
         justify-content: flex-start;
+        width: 400px;
+        height: 230px;
     }
 
     .steps span {
