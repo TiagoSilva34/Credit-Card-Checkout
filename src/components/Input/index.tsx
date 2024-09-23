@@ -8,10 +8,11 @@ const Input = ({
     onChange,
     onFocus,
     name,
-    maxLength
+    maxLength,
+    disabled
 }: InputProps) => {
     return (
-        <input maxLength={maxLength} name={name} onFocus={onFocus} type={type} placeholder={placeholder} className={className} value={value} onChange={onChange} />
+        <input disabled={disabled} maxLength={maxLength} name={name} onFocus={onFocus} type={type} placeholder={placeholder} className={className} value={value} onChange={onChange} />
     )
 }
 
