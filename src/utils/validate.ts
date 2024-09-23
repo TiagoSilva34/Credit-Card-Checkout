@@ -1,21 +1,31 @@
 export const validateCardNumber = (cardNumber: string) => {
-    cardNumber = cardNumber.replace(/[^0-9]/g, '');
+  cardNumber = cardNumber.replace(/\D/g, '');
 
-    let sum = 0;
-    let shouldDouble = false;
-    for (let i = cardNumber.length - 1; i >= 0; i--) {
-        let digit = parseInt(cardNumber.charAt(i));
-        if (shouldDouble)
-        if ((digit *= 2) > 9) digit = digit - 9;
-        sum += digit;
-        shouldDouble = !shouldDouble;
-     }
-     let isValid = sum % 10 === 0; 
+  if (!/^\d{13,19}$/.test(cardNumber)) {
+    return false;
+  }
 
-     return isValid
+  let soma = 0;
+  let deveDuplicar = false;
+
+  for (let i = cardNumber.length - 1; i >= 0; i--) {
+    let digito = parseInt(cardNumber.charAt(i), 10);
+
+    if (deveDuplicar) {
+      digito *= 2;
+      if (digito > 9) {
+        digito -= 9;
+      }
+    }
+
+    soma += digito;
+    deveDuplicar = !deveDuplicar;
+  }
+
+  return soma % 10 === 0;
 }
 
-export const validateCVC= (cvv: any) => {
+export const validateOnlyNumeric= (cvv: any) => {
     cvv = cvv.replace(/[^0-9]/g, '');
     return cvv
 }
@@ -23,4 +33,15 @@ export const validateCVC= (cvv: any) => {
 export const validateCardDate = (value: string) => {
     value = value.replace(/[^0-9-/]/g, '');
     return value
+}
+
+export const validateCVVSize = (value: string) => {
+  const regex = /^[0-9]{3,4}$/;
+
+  return regex.test(value)
+}
+
+export const validateCardName = (name: string) => {
+  name = name.replace(/[^a-zA-Z-" "]+/g, '');
+  return name
 }
