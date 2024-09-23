@@ -5,10 +5,11 @@ const Button = ({
     children,
     className,
     onClick,
-    disabled
+    disabled,
+    style
 }: ButtonProps) => {
     return (
-        <button disabled={disabled} type={type} className={className} onClick={onClick}>
+        <button style={style} disabled={disabled} type={type} className={className} onClick={onClick}>
             {children}
         </button>
     )
