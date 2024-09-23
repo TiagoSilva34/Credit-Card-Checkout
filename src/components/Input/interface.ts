@@ -7,4 +7,5 @@ export interface InputProps {
     onFocus?: React.FocusEventHandler<HTMLInputElement>
     name?: string
     maxLength?: any
+    disabled?: boolean
 }
